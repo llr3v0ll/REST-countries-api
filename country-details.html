@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>FrontEnd Mentor Countries</title>
+  </head>
+  <body class="dark">
+    <header>
+      <h1>Where in the world?</h1>
+      <button id="theme-toggle">
+        <img src="src/moon-svgrepo-com.svg" alt="moon" /> Dark Mode
+      </button>
+    </header>
+    <main class="phone-main">
+      <form>
+        <button class="back-but">🡐 Back</button>
+      </form>
+      <div id="country-container">
+        <div class="flag-container"></div>
+        <div class="country-info-container"></div>
+      </div>
+    </main>
+    <script type="module" src="country-page.js"></script>
+    <script>
+      function changeLocalStorage(event) {
+        localStorage.setItem("selectedCountry", event.target.textContent);
+        location.reload();
+      }
+
+      const body = document.querySelector("body"),
+        But = document.querySelector("#theme-toggle");
+      But.innerHTML = `<img src="src/moon-svgrepo-com.svg" alt="moon"> Dark Mode`;
+
+      But.addEventListener("click", (event) => {
+        body.classList.toggle("dark");
+        body.classList.toggle("light");
+        if (
+          But.innerHTML ==
+          `<img src="src/moon-svgrepo-com.svg" alt="moon"> Dark Mode`
+        ) {
+          But.innerHTML = `<img src="src/sun-svgrepo-com.svg" alt="sun" /> Light Mode`;
+        } else {
+          But.innerHTML = `<img src="src/moon-svgrepo-com.svg" alt="moon"> Dark Mode`;
+        }
+      });
+
+      const backBut = document.querySelector(".back-but");
+      backBut.addEventListener("click", (event) => {
+        event.preventDefault();
+        history.back();
+      });
+    </script>
+  </body>
+</html>
