@@ -14,6 +14,7 @@ fetch("data.json")
 
       img.src = country.flag;
       img.draggable = false;
+      img.alt = `${country.name} flag`;
       div.appendChild(img);
 
       infobox.classList.add("info-container");

@@ -8,9 +8,10 @@ fetch("data.json")
   .then((data) => {
     data.forEach((country) => {
       if (country.name == selectedCountry) {
+        
         const img = document.createElement("img");
         img.src = country.flag;
-
+        img.alt = `${country.name} flag`;
         flagContainer.appendChild(img);
 
         var currencyString = "";
